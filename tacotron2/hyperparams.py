@@ -95,15 +95,15 @@ class Hyperparams:
     logdir = "logs"
     logname = 'demos'
     sampledir = 'samples'
-    puresynth = 'logs/first2'
+    puresynth = 'logs/first'
     batch_size = 16
     max_grad_norm = 100.
     max_grad_val = 5.
     num_iterations = 500000
 
     # Prepo params
-    data = 'datasets/defaultS'
-    prepro_gpu = 16
+    data = 'datasets/default'
+    prepro_gpu = 0
     
     # Training and Testing
     summary_interval = 1

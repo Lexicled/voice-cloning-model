@@ -11,6 +11,30 @@ import tqdm
 
 import multiprocessing
 
+class TacoProcess:
+    def __init__(self) -> None:
+        pass
+
+    def taco_process(self):
+            wav_folder = os.path.join(hp.data, 'wavs')
+            mel_folder = os.path.join(hp.data, 'mels')
+            mag_folder = os.path.join(hp.data, 'mags')
+            done_folder = os.path.join(hp.data, 'dones')
+
+            for folder in (mel_folder, mag_folder, done_folder):
+            #for folder in (mel_folder, mag_folder):
+                if not os.path.exists(folder): os.mkdir(folder)
+
+            files = glob.glob(os.path.join(wav_folder, "*"))
+            if hp.prepro_gpu > 1:
+                files = split_list(files, wanted_parts=hp.prepro_gpu)
+                for i in range(hp.prepro_gpu):
+                    p = multiprocessing.Process(target=prep_all_files, args=(files[i],))
+                    p.start()
+            else:
+                prep_all_files(files)
+
+
 def get_spectrograms(sound_file):
     # Loading sound file
     y, sr = librosa.load(sound_file, sr=hp.sr)
