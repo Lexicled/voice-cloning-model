@@ -33,4 +33,4 @@ class Trainer:
 
 if __name__ == '__main__':
     trainer = Trainer
-    trainer.main()
+    trainer.main("tacotron2/train.py")
