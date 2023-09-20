@@ -1,8 +1,8 @@
 import subprocess
-from text_analysis import TextAnalyser
-from feature_extraction import FeatureExtractor
-from preprocess import Preprocesser
-from tacotron2.hyperparams import Hyperparams as hp
+from .text_analysis import TextAnalyser
+from .feature_extraction import FeatureExtractor
+from .preprocess import Preprocesser
+from .tacotron2.hyperparams import Hyperparams as hp
 import os
 
 class Trainer:

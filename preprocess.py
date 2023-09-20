@@ -1,9 +1,9 @@
 from scipy.io import wavfile
 from scipy.signal import resample, butter, lfilter
-from tacotron2.prepro import TacoProcess
+from .tacotron2.prepro import TacoProcess
 import numpy as np
 import os
-from tacotron2.hyperparams import Hyperparams as hp
+from .tacotron2.hyperparams import Hyperparams as hp
 
 class Preprocesser:
     def __init__(self, audio_path: str):

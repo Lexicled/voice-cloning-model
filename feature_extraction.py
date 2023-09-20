@@ -1,5 +1,5 @@
 import librosa
-from preprocess import Preprocesser
+from .preprocess import Preprocesser
 import numpy as np
 
 class FeatureExtractor:
