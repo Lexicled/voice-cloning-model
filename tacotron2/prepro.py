@@ -4,7 +4,7 @@
 import numpy as np
 import librosa
 
-from hyperparams import Hyperparams as hp
+from .hyperparams import Hyperparams as hp
 import glob
 import os
 import tqdm

@@ -1,9 +1,9 @@
 import subprocess
+import os
 from .text_analysis import TextAnalyser
 from .feature_extraction import FeatureExtractor
 from .preprocess import Preprocesser
 from .tacotron2.hyperparams import Hyperparams as hp
-import os
 
 class Trainer:
     def __init__(self) -> None:
@@ -24,7 +24,7 @@ class Trainer:
         
         print("All files processed")
 
-        script = ["python", train_loc, "--output_directory='output'", "--log_directory='log'"]
+        script = ["python", train_loc, "--output_directory=output", "--log_directory=log"]
         try:
             subprocess.run(script, check=True)
             print("Model trained successfully!")
@@ -32,5 +32,5 @@ class Trainer:
             print(f"Error training model: {e}")
 
 if __name__ == '__main__':
-    trainer = Trainer
+    trainer = Trainer()
     trainer.main("tacotron2/train.py")
