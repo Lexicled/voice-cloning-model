@@ -17,6 +17,8 @@ class Trainer:
         processor.taco_process(features, count)
 
     def main(self, train_loc: str):
+        # Ensure the correct working directory
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
         count = 0
         for file in os.listdir("audio_files"):
             count += 1
