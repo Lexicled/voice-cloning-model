@@ -11,7 +11,7 @@ class FeatureExtractor:
         return preprocessor.filter(preprocessor.resample())
 
     def extract_features(self) -> []:
-        audio_file = self.preprocess(self.filename)
+        audio_file = self.preprocess()
         audio, sample_rate = librosa.load(audio_file, sr=None)
         
         mfccs = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=13)
